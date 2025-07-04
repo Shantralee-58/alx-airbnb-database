@@ -1,4 +1,4 @@
--- Author: Idah Khumalo
+-- Author: Idah Lindiwe Khumalo
 -- Description: Complex SQL join queries for ALX Airbnb project
 
 -- 1. INNER JOIN: Bookings and users who made them
@@ -10,7 +10,8 @@ SELECT
     u.name AS user_name
 FROM
     bookings b
-INNER JOIN users u ON b.user_id = u.id;
+INNER JOIN users u ON b.user_id = u.id
+ORDER BY b.start_date DESC;
 
 -- 2. LEFT JOIN: Properties and their reviews, even if there are no reviews
 SELECT
@@ -21,7 +22,8 @@ SELECT
     r.comment
 FROM
     properties p
-LEFT JOIN reviews r ON p.id = r.property_id;
+LEFT JOIN reviews r ON p.id = r.property_id
+ORDER BY p.id;
 
 -- 3. FULL OUTER JOIN: All users and all bookings, even if unrelated
 -- MySQL doesn't support FULL OUTER JOIN directly, so we simulate it with UNION
@@ -44,3 +46,4 @@ SELECT
 FROM
     users u
 RIGHT JOIN bookings b ON u.id = b.user_id;
+
