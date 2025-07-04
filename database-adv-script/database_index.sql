@@ -11,5 +11,8 @@ CREATE INDEX idx_start_date ON bookings(start_date);
 CREATE INDEX idx_property_id_reviews ON reviews(property_id);
 
 -- Use EXPLAIN to check query execution plan before and after adding indexes
+-- You can also use EXPLAIN ANALYZE for more detailed performance insight
+EXPLAIN ANALYZE
+SELECT * FROM bookings WHERE user_id = 10;
 -- Example:
 -- EXPLAIN SELECT * FROM bookings WHERE user_id = 10;
